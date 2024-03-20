@@ -1,5 +1,6 @@
 package com.sp.spingboot_restfull.controller;
 
+import com.sp.spingboot_restfull.dto.UserDto;
 import com.sp.spingboot_restfull.entity.User;
 import com.sp.spingboot_restfull.service.UserService;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,8 @@ public class UserController {
     private UserService userService;
     // build Create User REST API
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user){
-        User savedUser = userService.createUser(user);
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto user){
+        UserDto savedUser = userService.createUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
     // build get User by id REST API
